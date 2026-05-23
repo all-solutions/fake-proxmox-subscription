@@ -1,20 +1,27 @@
 name: Build and release package
 
 on:
-  workflow_dispatch:  # Manually start a workflow
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     name: Build and release package
     runs-on: ubuntu-latest
 
-    outputs:
-      package_version: ${{ steps.get_version.outputs.PACKAGE_VERSION }}
-
     steps:
       - name: Checkout repository
         id: checkout_repository
         uses: actions/checkout@v4
+
+      - name: Get package version
+        id: get_version
+        run: |
+          PACKAGE_VERSION="$(dpkg-parsechangelog -S Version)"
+          echo "package_version=${PACKAGE_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Package version: ${PACKAGE_VERSION}"
 
       - name: Build package
         id: build_package
@@ -24,14 +31,10 @@ jobs:
         with:
           buildpackage-opts: -us -uc -b
 
-      - name: Get package version
-        id: get_version
-        run: echo "PACKAGE_VERSION=$(echo debian/artifacts/fake-proxmox-subscription_*_all.deb | awk -F'[_]' '{ print $2 }')" >> $GITHUB_OUTPUT
-
       - name: Publish release
         id: publish_release
         uses: ncipollo/release-action@v1
-        if: github.ref_type == 'tag'
         with:
+          tag: v${{ steps.get_version.outputs.package_version }}
           name: v${{ steps.get_version.outputs.package_version }}
           artifacts: debian/artifacts/fake-proxmox-subscription_${{ steps.get_version.outputs.package_version }}_all.deb
