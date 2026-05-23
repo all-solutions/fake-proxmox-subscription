@@ -36,7 +36,7 @@ license_pbs = "pbst-8924239706"
 
 # UI customization:
 ui_product_name = "Proxmox"
-# ui_message = "Jamesits and Arszilla has got your back"
+ui_message = ""
 ui_url = "https://github.com/all-solutions/fake-proxmox-subscription"
 
 
