@@ -30,14 +30,14 @@ shared_key_data = "kjfdlskfhiuewhfk947368"
 server_key_file = "/etc/ssh/ssh_host_rsa_key.pub"
 
 # Default license keys:
-license_pve = "pve8p-1145141919"
-license_pmg = "pmgp-1145141919"
-license_pbs = "pbst-1145141919"
+license_pve = "pve8p-8924239706"
+license_pmg = "pmgp-8924239706"
+license_pbs = "pbst-8924239706"
 
 # UI customization:
 ui_product_name = "Proxmox"
-ui_message = "Jamesits and Arszilla has got your back"
-ui_url = "https://github.com/Arszilla/fake-proxmox-subscription"
+# ui_message = "Jamesits and Arszilla has got your back"
+ui_url = "https://github.com/all-solutions/fake-proxmox-subscription"
 
 
 def get_timestamp():
