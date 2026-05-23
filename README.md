@@ -34,11 +34,11 @@ fuck JavaScript.
 
 ### Usage
 #### Installation
-Download the [latest `.deb`][2] file from the [releases][2] page and install it
+Download the [latest `.deb`][2] file from the [releases][3] page and install it
 with `apt` or `apt-get`:
 
 ```
-# curl -s https://api.github.com/repos/arszilla/fake-proxmox-subscription/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | wget -i - -O fake-proxmox-subscription.deb
+# curl -s https://api.github.com/repos/all-solutions/fake-proxmox-subscription/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | wget -i - -O fake-proxmox-subscription.deb
 # apt install ./fake-proxmox-subscription.deb
 ```
 
@@ -57,7 +57,7 @@ system:
 ```
 $ sudo apt-get update
 $ sudo apt-get install -y --no-install-recommends build-essential debhelper dpkg-dev
-$ git clone https://github.com/Arszilla/fake-proxmox-subscription
+$ git clone https://github.com/all-solutions/fake-proxmox-subscription
 $ cd fake-proxmox-subscription/
 $ dpkg-buildpackage -us -uc -b
 $ ls -al ../fake-proxmox-subscription_*
@@ -86,6 +86,6 @@ validating packaging, etc. I've only kept it in case someone might be
 interested in using it.
 
 [1]: https://github.com/Jamesits/pve-fake-subscription
-[2]: https://github.com/Arszilla/fake-proxmox-subscription/releases/latest
-[3]: https://github.com/Arszilla/fake-proxmox-subscription/releases
+[2]: https://github.com/all-solutions/fake-proxmox-subscription/releases/latest
+[3]: https://github.com/all-solutions/fake-proxmox-subscription/releases
 [4]: https://github.com/Jamesits
