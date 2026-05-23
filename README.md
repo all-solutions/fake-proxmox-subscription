@@ -41,6 +41,7 @@ with `apt` or `apt-get`:
 # curl -s https://api.github.com/repos/all-solutions/fake-proxmox-subscription/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | wget -i - -O fake-proxmox-subscription.deb
 # apt install ./fake-proxmox-subscription.deb
 ```
+(Optional) `echo "127.0.0.1 shop.maurer-it.com" | sudo tee -a /etc/hosts` to prevent fake keys from being checked against the Proxmox servers
 
 ### Uninstallation
 To uninstall, run `apt` or `apt-get` with the `remove` flag and the package
